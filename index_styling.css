@@ -1,1 +1,211 @@
-/* This is css styling sheet for homepage*/
+/* General font */
+body {
+  margin: 0;
+  font-family: 'Raleway', sans-serif;
+  background: #fffaf5;
+  color: #333;
+  scroll-behavior: smooth;
+}
+
+/* Header */
+/* Navbar */
+header {
+  background: #222;
+  padding: 15px 40px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.navbar {
+  display: flex;                      /* flexbox container */
+  justify-content: space-between;     /* logo left, menu right */
+  align-items: center;                /* vertically aligned */
+}
+
+.logo {
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: #fff;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;     /* flexbox for nav items */
+  gap: 20px;         /* space between links */
+  margin: 0;
+  padding: 0;
+}
+
+nav a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: 600;
+  transition: color 0.3s;
+}
+
+nav a:hover,
+nav a.active {
+  color: #ff7eb9;
+}
+
+
+/* Hero Section */
+.hero {
+  text-align: center;
+  padding: 100px 20px;
+  /* 🔽 Add your background image here */
+  background: url("image/WhatsApp\ Image\ 2025-09-26\ at\ 16.23.02_a89fdda5.jpg") no-repeat center center/cover;
+  color: #fff;
+}
+
+.hero h1 {
+  font-family: 'Cookie', cursive;  /* 🎨 Cookie font only here */
+  font-size: 4rem;
+  margin-bottom: 10px;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+/* Services */
+.services {
+  display: flex;
+  justify-content: center;  /*place the service cards side by side-flex box*/
+  gap: 20px;
+  padding: 60px 20px;
+  background: #fdf1f1;
+  flex-wrap: wrap;
+}
+
+.service-card {
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  flex: 1;
+  min-width: 250px;
+  max-width: 300px;
+  text-align: center;
+  transition: transform 0.3s;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+}
+
+/* About */
+.about {
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.about h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+/* Testimonials */
+.testimonials {
+  background: #faf0ff;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.testimonials h1 {
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+}
+
+.testimonial-grid {
+  display: flex;              /* ✅ Flexbox used: arranges testimonial cards in a row */
+  justify-content: center;    /* ✅ Centers the cards horizontally */
+  gap: 30px;                  /* ✅ Space between the cards (flexbox gap property) */
+  flex-wrap: wrap;            /* ✅ Allows wrapping into new rows on smaller screens */
+}
+
+.testimonial {
+  background: #fff;
+  padding: 30px 20px;
+  border-radius: 15px;
+  max-width: 280px;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.testimonial:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 18px rgba(0,0,0,0.15);
+}
+
+.testimonial img {
+  width: 120px;              
+  height: 120px;
+  object-fit: cover;         
+  border-radius: 50%;        
+  margin-bottom: 15px;
+  border: 3px solid #ff7eb9; 
+}
+
+.testimonial p {
+  font-style: italic;
+  font-size: 0.95rem;
+  margin: 10px 0 15px;
+}
+
+.testimonial h3 {
+  font-weight: bold;
+  color: #333;
+  margin-top: 10px;
+}
+
+
+/* Footer */
+footer {
+  background: linear-gradient(135deg, #222, #444);
+  color: #fff;
+  padding: 30px 20px;
+  text-align: center;
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;    /*stack vertically*/
+  align-items: center;       /*centered horizontally*/
+  gap: 15px;
+}
+
+.contact-info p {
+  margin: 5px 0;
+  font-size: 0.95rem;
+}
+
+.contact-info i {
+  color: #ff7eb9;
+  margin-right: 8px;
+}
+
+.social-icons {
+  margin-top: 10px;
+}
+
+.social-icons a {
+  color: #fff;
+  margin: 0 10px;
+  font-size: 1.3rem;
+  transition: color 0.3s;
+}
+
+.social-icons a:hover {
+  color: #ff7eb9;
+}
+
+.footer-bottom {
+  margin-top: 20px;
+  font-size: 0.85rem;
+  border-top: 1px solid rgba(255,255,255,0.2);
+  padding-top: 10px;
+}
+
