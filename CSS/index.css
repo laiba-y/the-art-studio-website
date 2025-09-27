@@ -70,31 +70,76 @@ nav a.active {
   font-weight: 600;
 }
 
-/* Services */
-.services {
-  display: flex;
-  justify-content: center;  /*place the service cards side by side-flex box*/
-  gap: 20px;
-  padding: 60px 20px;
-  background: #fdf1f1;
-  flex-wrap: wrap;
+/* Process Section */
+.process {
+  padding: 70px 20px;
+  background: #fdf6f9;
+  text-align: center;
 }
 
-.service-card {
+.process h1 {
+  font-size: 2.5rem;
+  margin-bottom: 50px;
+  color: #333;
+}
+
+.process-steps {
+  display: flex;                 /* ✅ Flexbox layout */
+  justify-content: center;       /* Center horizontally */
+  align-items: stretch;          /* Stretch equal height */
+  gap: 25px;                     /* Spacing between steps */
+  flex-wrap: wrap;               /* Wrap on smaller screens */
+}
+
+.step {
   background: #fff;
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  padding: 30px 20px;
+  border-radius: 15px;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
   flex: 1;
   min-width: 250px;
-  max-width: 300px;
-  text-align: center;
-  transition: transform 0.3s;
+  max-width: 280px;
+  transition: transform 0.4s, box-shadow 0.4s;
+  position: relative;
 }
 
-.service-card:hover {
-  transform: translateY(-5px);
+.step:hover {
+  transform: translateY(-10px);   /* Hover lift effect */
+  box-shadow: 0 12px 20px rgba(0,0,0,0.15);
 }
+
+.step-number {
+  width: 50px;
+  height: 50px;
+  background: #ff7eb9;
+  color: #fff;
+  font-weight: bold;
+  font-size: 1.3rem;
+  border-radius: 50%;
+  display: flex;                  /* Center number inside */
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 15px;           /* Center circle, add margin */
+  animation: pulse 2s infinite;   /* Animated glowing effect */
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(255,126,185, 0.7); }
+  70% { box-shadow: 0 0 0 15px rgba(255,126,185, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(255,126,185, 0); }
+}
+
+.step h2 {
+  font-size: 1.3rem;
+  margin: 10px 0;
+  color: #444;
+}
+
+.step p {
+  font-size: 0.95rem;
+  color: #555;
+}
+
 
 /* About */
 .about {
