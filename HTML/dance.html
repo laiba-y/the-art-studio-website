@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dance Classes</title>
+  <link rel="stylesheet" href="dance.css">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Cookie&family=Raleway:wght@400;600&display=swap" rel="stylesheet">
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="navbar">
+      <div class="logo">🎨 Art Studio</div>
+      <button class="menu-btn" onclick="openSidebar()">
+        <i class="fas fa-bars"></i> Menu
+      </button>
+    </div>
+  </header>
+
+  <!-- Sidebar Menu -->
+  <div id="sidebar" class="sidebar">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeSidebar()">&times;</a>
+    <a href="WP_A1.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="painting.html">Painting</a>
+    <a href="dance.html" class="active">Dance</a>
+    <a href="guitar.html">Guitar</a>
+    <a href="bookings.html">Bookings</a>
+  </div>
+
+  <!-- Hero Section -->
+  <header class="hero">
+    <div class="hero-content">
+      <h1>Dance with Passion</h1>
+      <p>Find your rhythm. Express your style. Join our community today.</p>
+      <a href="#schedule" class="btn">View Schedule</a>
+    </div>
+  </header>
+
+  <!-- About Section -->
+  <section class="description">
+    <div class="text">
+      <h2>About Our Dance Classes</h2>
+      <p>
+        Our dance classes blend rhythm, movement, and self-expression in a supportive 
+        environment. From beginners learning their first steps to advanced dancers 
+        mastering complex routines, we make sure every student finds their groove.  
+        Join us to enhance flexibility, fitness, and confidence — all while having fun!
+      </p>
+    </div>
+    <div class="image">
+      <img src="image/studio pic.jpeg" alt="Dance Studio">
+    </div>
+  </section>
+
+  <!-- Gallery -->
+  <section class="gallery">
+    <h2>Gallery</h2>
+    <div class="gallery-grid">
+      <div class="gallery-item"><img src="image/dance class 1.jpeg" alt=""><span>Beginners</span></div>
+      <div class="gallery-item"><img src="image/dance class 2.jpeg" alt=""><span>Intermediate</span></div>
+      <div class="gallery-item"><img src="image/dance class 3.jpeg" alt=""><span>Advanced</span></div>
+      <div class="gallery-item"><img src="image/dance class 4.jpeg" alt=""><span>Workshops</span></div>
+    </div>
+  </section>
+
+  <!-- Schedule -->
+  <section id="schedule" class="schedule">
+    <h2>Class Schedule</h2>
+    <div class="schedule-grid">
+      <div class="schedule-item">
+        <h3>Monday 5:00 PM</h3>
+        <p><strong>Instructor:</strong> Sara</p>
+        <p><strong>Level:</strong> Beginner</p>
+        <p><strong>Duration:</strong> 1 hour</p>
+        <button><a href="bookings.html" class="book-btn">Book Now</a></button>
+      </div>
+      <div class="schedule-item">
+        <h3>Wednesday 6:00 PM</h3>
+        <p><strong>Instructor:</strong> Albert</p>
+        <p><strong>Level:</strong> Intermediate</p>
+        <p><strong>Duration:</strong> 1.5 hours</p>
+        <button><a href="bookings.html" class="book-btn">Book Now</a></button>
+      </div>
+      <div class="schedule-item">
+        <h3>Friday 7:00 PM</h3>
+        <p><strong>Instructor:</strong> Zara</p>
+        <p><strong>Level:</strong> Advanced</p>
+        <p><strong>Duration:</strong> 2 hours</p>
+        <button><a href="bookings.html" class="book-btn">Book Now</a></button>
+      </div>
+      <div class="schedule-item">
+        <h3>Sunday 4:00 PM</h3>
+        <p><strong>Instructor:</strong> Bob</p>
+        <p><strong>Level:</strong> Mixed</p>
+        <p><strong>Duration:</strong> 1.5 hours</p>
+        <button><a href="bookings.html" class="book-btn">Book Now</a></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Dance Styles -->
+  <section class="styles">
+    <h2>Our Dance Styles</h2>
+    <div class="styles-grid">
+      <div class="style-card">
+        <i class="fas fa-music"></i>
+        <h3>Hip-Hop</h3>
+        <p>High-energy choreography with urban grooves and freestyle vibes.</p>
+      </div>
+      <div class="style-card">
+        <i class="fas fa-shoe-prints"></i>
+        <h3>Ballet</h3>
+        <p>Graceful movements, posture training, and classical dance forms.</p>
+      </div>
+      <div class="style-card">
+        <i class="fas fa-compact-disc"></i>
+        <h3>Salsa</h3>
+        <p>Latin-inspired steps full of rhythm, spins, and fun energy.</p>
+      </div>
+      <div class="style-card">
+        <i class="fas fa-star"></i>
+        <h3>Contemporary</h3>
+        <p>Expressive routines blending ballet and modern movement.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-grid">
+      <div>
+        <h4>Contact</h4>
+        <p><i class="fas fa-envelope"></i> contact@artstudio.com</p>
+        <p><i class="fas fa-phone"></i> +92 300 1234567</p>
+        <p><i class="fas fa-map-marker-alt"></i> Islamabad, Pakistan</p>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <p><a href="services.html">Services</a></p>
+        <p><a href="bookings.html">Bookings</a></p>
+      </div>
+      <div>
+        <h4>Follow Us</h4>
+        <p><i class="fab fa-facebook-f"></i> Facebook</p>
+        <p><i class="fab fa-instagram"></i> Instagram</p>
+        <p><i class="fab fa-youtube"></i> YouTube</p>
+      </div>
+    </div>
+    <p class="footer-bottom">© 2025 Art Studio</p>
+  </footer>
+
+  <!-- Sidebar Script -->
+  <script>
+    function openSidebar() {
+      document.getElementById("sidebar").style.width = "250px";
+    }
+    function closeSidebar() {
+      document.getElementById("sidebar").style.width = "0";
+    }
+  </script>
+
+</body>
+</html>
