@@ -9,172 +9,186 @@
   <link href="https://fonts.googleapis.com/css2?family=Cookie&family=Raleway:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-  <!-- Page CSS: update path if needed -->
+  <!-- Page CSS -->
   <link rel="stylesheet" href="css/guitar.css">
 </head>
 <body>
 
-  <!-- Header: logo + menu button -->
-  <header class="site-header">
-    <div class="header-inner">
-      <div class="logo">🎨 Art Studio</div>
-      <button id="menuBtn" class="menu-btn" aria-label="Open menu" aria-expanded="false">
-        <i class="fas fa-bars" aria-hidden="true"></i>
-      </button>
+  <!-- Header -->
+  <header class="navbar">
+    <div class="logo">🎨 Art Studio</div>
+    <button class="menu-btn" onclick="openSidebar()">
+      <i class="fas fa-bars"></i> Menu
+    </button>
+  </header>
+
+  <!-- Sidebar (right) -->
+  <div id="sidebar" class="sidebar">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeSidebar()">&times;</a>
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="paintingclass.html">Painting</a>
+    <a href="dance.html">Dance</a>
+    <a href="guitar.html" class="active">Guitar</a>
+    <a href="bookings.html">Bookings</a>
+  </div>
+
+  <!-- Hero -->
+  <header class="hero">
+    <div class="hero-content">
+      <h1>Strum Your Story</h1>
+      <p>From first chords to confident performances — our guitar lessons make music simple and fun.</p>
+      <a href="#schedule" class="btn">View Schedule</a>
     </div>
   </header>
 
-  <!-- overlay -->
-  <div id="overlay" class="overlay" aria-hidden="true"></div>
+  <!-- Description (grid: text + image) -->
+  <section class="description">
+    <div class="text">
+      <h2>About Our Guitar Classes</h2>
+      <p>
+        Our guitar classes combine hands-on practice, song-based learning and gentle music theory.
+        Whether you want to play acoustic ballads, electric riffs, or fingerstyle pieces, we offer
+        friendly instruction for all ages and levels. Expect small groups, supportive teachers
+        and a welcoming studio environment.
+      </p>
+      <p>
+        Students learn posture, chords, strumming patterns, basic music notation, and how to play full songs.
+        We offer loaner instruments for beginners and free practice corners during open hours.
+      </p>
+    </div>
+    <div class="image">
+      <img src="images/studio.jpg" alt="Guitar Studio">
+    </div>
+  </section>
 
-  <div class="page-wrapper">
-    <!-- Sidebar -->
-    <aside id="sidebar" class="sidebar" aria-hidden="true">
-      <div class="sidebar-inner" role="navigation" aria-label="Main menu">
-        <button id="closeSidebar" class="close-sidebar" aria-label="Close menu">&times;</button>
-        <h3>Menu</h3>
-        <ul>
-          <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
-          <li><a href="services.html"><i class="fas fa-th-large"></i> Services</a></li>
-          <li><a href="painting.html"><i class="fas fa-paint-brush"></i> Painting</a></li>
-          <li><a href="dance.html"><i class="fas fa-music"></i> Dance</a></li>
-          <li><a href="html/guitar.html" class="active"><i class="fas fa-guitar"></i> Guitar</a></li>
-          <li><a href="bookings.html"><i class="fas fa-calendar-check"></i> Bookings</a></li>
-        </ul>
+  <!-- Gallery -->
+  <section class="gallery">
+    <h2>Gallery</h2>
+    <div class="gallery-grid">
+      <div class="gallery-item">
+        <img src="images/guitar1.jpg" alt="Students practicing">
+        <span>Group Practice</span>
       </div>
-    </aside>
+      <div class="gallery-item">
+        <img src="images/guitar2.webp" alt="Instructor demo">
+        <span>Instructor Demo</span>
+      </div>
+     
+      <div class="gallery-item">
+        <img src="images/guitar5.png" alt="Young learner">
+        <span>Beginner Friendly</span>
+      </div>
+      <div class="gallery-item">
+        <img src="images/studio.jpg" alt="Studio interior">
+        <span>Studio Interior</span>
+      </div>
+    </div>
+  </section>
 
-    <!-- MAIN CONTENT -->
-    <main class="guitar-main" id="mainContent">
-      <div class="container">
+  <!-- Schedule -->
+  <section id="schedule" class="schedule">
+    <h2>Class Schedule</h2>
+    <div class="schedule-grid">
+      <div class="schedule-item">
+        <h3>Monday • 10:00 AM</h3>
+        <p><strong>Instructor:</strong> Ali</p>
+        <p><strong>Level:</strong> Beginner</p>
+        <p><strong>Duration:</strong> 1 hour</p>
+        <button><a href="bookings.html" class="book-btn">Book Now</a></button>
+      </div>
 
-        <!-- Intro centered -->
-        <section class="intro intro-centered">
-          <h1>Guitar Classes</h1>
-          <p class="lead">Learn acoustic & electric guitar with friendly instructors. Classes for beginners and intermediate players — chords, strumming, fingerstyle, songs and basic music theory.</p>
-        </section>
+      <div class="schedule-item">
+        <h3>Wednesday • 2:00 PM</h3>
+        <p><strong>Instructor:</strong> Sara</p>
+        <p><strong>Level:</strong> Mixed</p>
+        <p><strong>Duration:</strong> 1.5 hours</p>
+        <button><a href="bookings.html" class="book-btn">Book Now</a></button>
+      </div>
 
-        <!-- Gallery: 3 columns x 2 rows, captions under images -->
-        <section class="gallery-section" aria-label="Studio gallery">
-          <h2 class="section-title">Studio & Class Gallery</h2>
+      <div class="schedule-item">
+        <h3>Friday • 5:30 PM</h3>
+        <p><strong>Instructor:</strong> Omar</p>
+        <p><strong>Level:</strong> Intermediate</p>
+        <p><strong>Duration:</strong> 1.5 hours</p>
+        <button><a href="bookings.html" class="book-btn">Book Now</a></button>
+      </div>
 
-          <div class="gallery-grid">
-            <figure>
-              <img src="images/guitar1.jpg" alt="Students practicing in the studio">
-              <figcaption>Group practice — warm, friendly environment.</figcaption>
-            </figure>
+      <div class="schedule-item">
+        <h3>Saturday • 11:00 AM</h3>
+        <p><strong>Instructor:</strong> Zara</p>
+        <p><strong>Level:</strong> All levels</p>
+        <p><strong>Duration:</strong> 2 hours</p>
+        <button><a href="bookings.html" class="book-btn">Book Now</a></button>
+      </div>
+    </div>
+  </section>
 
-            <figure>
-              <img src="images/guitar2.webp" alt="Teacher explaining chords">
-              <figcaption>Instructor demonstrating chords step-by-step.</figcaption>
-            </figure>
+  <!-- Styles / Genres -->
+  <section class="styles">
+    <h2>What We Teach</h2>
+    <div class="styles-grid">
+      <div class="style-card">
+        <i class="fas fa-guitar"></i>
+        <h3>Acoustic</h3>
+        <p>Warm, song-based lessons focused on chords and rhythm for beginners.</p>
+      </div>
 
-            <figure>
-              <img src="images/guitar3.webp" alt="Students jamming">
-              <figcaption>Students jamming together — learning by playing songs.</figcaption>
-            </figure>
+      <div class="style-card">
+        <i class="fas fa-bolt"></i>
+        <h3>Electric / Rock</h3>
+        <p>Learn power chords, riffs and basic lead techniques for rock styles.</p>
+      </div>
 
-            <figure>
-              <img src="images/guitar4.jpeg" alt="Practice corner">
-              <figcaption>Comfortable practice corners with loaner instruments.</figcaption>
-            </figure>
+      <div class="style-card">
+        <i class="fas fa-hand-paper"></i>
+        <h3>Fingerstyle</h3>
+        <p>Technique-focused lessons on fingerpicking, patterns and harmonics.</p>
+      </div>
 
-            <figure>
-              <img src="images/guitar5.png" alt="Young student learning">
-              <figcaption>Beginner-friendly lessons for kids and adults.</figcaption>
-            </figure>
-
-            <figure>
-              <img src="images/studio.jpg" alt="Studio interior">
-              <figcaption>The studio interior — bright, tidy, fully equipped.</figcaption>
-            </figure>
-          </div>
-        </section>
-
-        <!-- Class timings (grid) + Booking CTA -->
-        <section class="class-info" aria-label="Class timings and details">
-          <h2 class="section-title">Class Timings & Details</h2>
-
-          <div class="timings-grid">
-            <div class="timing-card">
-              <h3>Morning Batch</h3>
-              <p><strong>Mon, Wed</strong> • 10:00 — 11:30 AM</p>
-              <p><strong>Level:</strong> Beginners</p>
-              <p>Focus: posture, simple chords, strumming basics.</p>
-            </div>
-
-            <div class="timing-card">
-              <h3>Afternoon Batch</h3>
-              <p><strong>Tue, Thu</strong> • 2:00 — 3:30 PM</p>
-              <p><strong>Level:</strong> Mixed</p>
-              <p>Focus: songs, fingerstyle intro, rhythm training.</p>
-            </div>
-
-            <div class="timing-card">
-              <h3>Evening Batch</h3>
-              <p><strong>Sat</strong> • 5:00 — 7:00 PM</p>
-              <p><strong>Level:</strong> Intermediate</p>
-              <p>Focus: theory, soloing basics, advanced songs.</p>
-            </div>
-          </div>
-
-          <div class="booking-row">
-            <p class="booking-cta">Ready to join? <a class="booking-btn" href="bookings.html">Book a trial lesson</a></p>
-          </div>
-        </section>
-
-      </div> <!-- .container -->
-    </main>
-  </div>
+      <div class="style-card">
+        <i class="fas fa-music"></i>
+        <h3>Songwriting</h3>
+        <p>Turn chords into songs — basic harmony, structure and simple arrangements.</p>
+      </div>
+    </div>
+  </section>
 
   <!-- Footer -->
   <footer>
-    <div class="footer-content">
-      <div class="contact-info">
+    <div class="footer-grid">
+      <div>
+        <h4>Contact</h4>
         <p><i class="fas fa-envelope"></i> contact@artstudio.com</p>
         <p><i class="fas fa-phone"></i> +92 300 1234567</p>
         <p><i class="fas fa-map-marker-alt"></i> 123 Creative Street, Lahore, Pakistan</p>
       </div>
-      <div class="social-icons">
-        <a href="#"><i class="fab fa-facebook-f"></i></a>
-        <a href="#"><i class="fab fa-instagram"></i></a>
-        <a href="#"><i class="fab fa-youtube"></i></a>
+
+      <div>
+        <h4>Quick Links</h4>
+        <p><a href="services.html">Services</a></p>
+        <p><a href="bookings.html">Bookings</a></p>
+      </div>
+
+      <div>
+        <h4>Follow Us</h4>
+        <p><i class="fab fa-facebook-f"></i> Facebook</p>
+        <p><i class="fab fa-instagram"></i> Instagram</p>
+        <p><i class="fab fa-youtube"></i> YouTube</p>
       </div>
     </div>
+
     <p class="footer-bottom">© 2025 Art Studio</p>
   </footer>
 
-  <!-- Sidebar toggle script (same pattern) -->
+  <!-- Sidebar Script -->
   <script>
-    (function() {
-      const body = document.body;
-      const menuBtn = document.getElementById('menuBtn');
-      const sidebar = document.getElementById('sidebar');
-      const overlay = document.getElementById('overlay');
-      const closeBtn = document.getElementById('closeSidebar');
-
-      function openSidebar() {
-        body.classList.add('sidebar-open');
-        sidebar.setAttribute('aria-hidden', 'false');
-        overlay.setAttribute('aria-hidden', 'false');
-      }
-      function closeSidebar() {
-        body.classList.remove('sidebar-open');
-        sidebar.setAttribute('aria-hidden', 'true');
-        overlay.setAttribute('aria-hidden', 'true');
-      }
-
-      menuBtn.addEventListener('click', () => {
-        const open = body.classList.contains('sidebar-open');
-        if (open) closeSidebar(); else openSidebar();
-        menuBtn.setAttribute('aria-expanded', String(!open));
-      });
-
-      closeBtn.addEventListener('click', closeSidebar);
-      overlay.addEventListener('click', closeSidebar);
-      document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeSidebar(); });
-      sidebar.querySelectorAll('a').forEach(a => a.addEventListener('click', closeSidebar));
-    })();
+    function openSidebar() {
+      document.getElementById("sidebar").style.width = "300px";
+    }
+    function closeSidebar() {
+      document.getElementById("sidebar").style.width = "0";
+    }
   </script>
 </body>
 </html>
