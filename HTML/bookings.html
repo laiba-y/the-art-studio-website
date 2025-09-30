@@ -1,45 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Art Studio - Bookings</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>The Art Studio — Bookings</title>
 
-  <!-- Fonts + icons -->
+  <!-- Fonts + icons (same as site) -->
   <link href="https://fonts.googleapis.com/css2?family=Cookie&family=Raleway:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-  <!-- CSS -->
+  <!-- Page CSS -->
   <link rel="stylesheet" href="css/bookings.css">
 </head>
 <body>
 
-  <!-- Header -->
-  <header class="site-header">
-    <div class="header-inner">
-      <div class="logo">🎨 The Art Studio</div>
-      <button id="menuBtn" class="menu-btn" aria-label="Open menu" aria-expanded="false">
-        <i class="fas fa-bars" aria-hidden="true"></i>
+  <!-- Header (same markup as dance page) -->
+  <header>
+    <div class="navbar">
+      <div class="logo">🎨 Art Studio</div>
+      <button class="menu-btn" onclick="openSidebar()">
+        <i class="fas fa-bars"></i> Menu
       </button>
     </div>
   </header>
 
-  <!-- Sidebar -->
-  <div class="overlay"></div>
-  <aside class="sidebar">
-    <div class="sidebar-inner">
-      <button class="close-sidebar"><i class="fas fa-times"></i></button>
-      <h3>Navigation</h3>
-      <ul>
-        <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
-        <li><a href="services.html"><i class="fas fa-concierge-bell"></i> Services</a></li>
-        <li><a href="painting.html"><i class="fas fa-paint-brush"></i> Painting</a></li>
-        <li><a href="dance.html"><i class="fas fa-music"></i> Dance</a></li>
-        <li><a href="guitar.html"><i class="fas fa-guitar"></i> Guitar</a></li>
-        <li><a href="bookings.html" class="active"><i class="fas fa-calendar-check"></i> Bookings</a></li>
-      </ul>
-    </div>
-  </aside>
+  <!-- Sidebar Menu (RIGHT, same structure as dance page) -->
+  <div id="sidebar" class="sidebar" aria-hidden="true">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeSidebar()">&times;</a>
+    <a href="index (1).html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="paintingclass.html">Painting</a>
+    <a href="dance.html">Dance</a>
+    <a href="guitar.html">Guitar</a>
+    <a href="bookings.html" class="active">Bookings</a>
+  </div>
 
   <!-- Main Content -->
   <main class="container">
@@ -47,74 +41,225 @@
     <!-- Intro -->
     <section class="intro-centered">
       <h1>Book Your Class 🎟️</h1>
-      <p class="lead">Reserve your spot in one of our exciting art, dance, or music classes. Fill in the form below to confirm your booking!</p>
+      <p class="lead">Pick a class, choose an available slot and we'll reserve your spot. One booking at a time — quick and easy!</p>
     </section>
 
     <!-- Booking Form -->
     <section class="booking-section">
-      <form class="booking-form">
+      <form id="bookingForm" class="booking-form" autocomplete="off">
+        <!-- contact row -->
+        <div class="form-row">
+          <div class="input-group">
+            <i class="fas fa-user"></i>
+            <input type="text" id="name" name="name" placeholder="Full Name" required />
+          </div>
 
-        <div class="input-group">
-          <i class="fas fa-user"></i>
-          <input type="text" id="name" placeholder="Full Name" required>
+          <div class="input-group">
+            <i class="fas fa-envelope"></i>
+            <input type="email" id="email" name="email" placeholder="Email address" required />
+          </div>
         </div>
 
-        <div class="input-group">
-          <i class="fas fa-envelope"></i>
-          <input type="email" id="email" placeholder="Email Address" required>
+        <!-- class selector row -->
+        <div class="form-row">
+          <div class="input-group wide">
+            <i class="fas fa-chalkboard-teacher"></i>
+            <select id="classSelect" name="class" required>
+              <option value="">— Choose a class —</option>
+              <option value="dance">Dance</option>
+              <option value="guitar">Guitar</option>
+              <option value="painting">Painting</option>
+            </select>
+          </div>
+
+          <div class="input-group">
+            <i class="fas fa-phone"></i>
+            <input type="tel" id="phone" name="phone" placeholder="Phone (optional)" />
+          </div>
         </div>
 
-        <div class="input-group">
-          <i class="fas fa-chalkboard-teacher"></i>
-          <select id="class" required>
-            <option value="">-- Select a class --</option>
-            <option value="guitar">🎸 Guitar</option>
-            <option value="painting">🎨 Painting</option>
-            <option value="dance">💃 Dance</option>
-          
-          </select>
+        <!-- dynamic slots injected here -->
+        <div id="slotsContainer" class="slots-container" aria-live="polite"></div>
+
+        <!-- notes / preferences -->
+        <div class="form-row">
+          <div class="input-group wide">
+            <i class="fas fa-comment-dots"></i>
+            <input id="notes" name="notes" placeholder="Any notes or accessibility needs (optional)" />
+          </div>
         </div>
 
-        <div class="input-group">
-          <i class="fas fa-calendar-alt"></i>
-          <input type="date" id="date" required>
+        <!-- submit -->
+        <div class="form-actions">
+          <button id="submitBtn" type="submit" class="booking-submit">
+            <i class="fas fa-check-circle"></i> Confirm Booking
+          </button>
+          <button id="clearBtn" type="button" class="booking-clear">Clear</button>
         </div>
-
-        <button type="submit" class="booking-submit">
-          <i class="fas fa-check-circle"></i> Confirm Booking
-        </button>
       </form>
     </section>
 
   </main>
 
+  <!-- Success toast -->
+  <div id="toast" class="toast" role="status" aria-live="polite" aria-atomic="true"></div>
+
   <!-- Footer -->
   <footer>
-    <div class="footer-content">
-      <p>© 2025 The Art Studio. All rights reserved.</p>
-      <p class="contact-info"><i class="fas fa-envelope"></i> info@theartstudio.com</p>
+    <div class="footer-grid">
+      <div>
+        <h4>Contact</h4>
+        <p><i class="fas fa-envelope"></i> contact@artstudio.com</p>
+        <p><i class="fas fa-phone"></i> +92 300 1234567</p>
+        <p><i class="fas fa-map-marker-alt"></i> 123 Creative Street, Lahore, Pakistan</p>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <p><a href="services.html" style="color:white ; text-decoration : none">Services</a></p>
+        <p><a href="bookings.html"style="color:white ; text-decoration : none">Bookings</a></p>
+      </div>
+      <div>
+        <h4>Follow Us</h4>
+        <p><i class="fab fa-facebook-f"></i> Facebook</p>
+        <p><i class="fab fa-instagram"></i> Instagram</p>
+      </div>
     </div>
+    <p class="footer-bottom">© 2025 Art Studio</p>
   </footer>
 
-  <!-- Sidebar Script -->
+  <!-- Script: sidebar + dynamic slots + submit (open/close now use same pattern as dance) -->
   <script>
-    const menuBtn = document.getElementById('menuBtn');
-    const overlay = document.querySelector('.overlay');
-    const sidebar = document.querySelector('.sidebar');
-    const closeSidebarBtn = document.querySelector('.close-sidebar');
+    // Sidebar open/close exactly like dance page
+    function openSidebar() {
+      document.getElementById("sidebar").style.width = "250px";
+      document.getElementById("sidebar").setAttribute('aria-hidden', 'false');
+    }
+    function closeSidebar() {
+      document.getElementById("sidebar").style.width = "0";
+      document.getElementById("sidebar").setAttribute('aria-hidden', 'true');
+    }
 
-    menuBtn.addEventListener('click', () => {
-      document.body.classList.toggle('sidebar-open');
+    // Schedule data for each class
+    const schedules = {
+      dance: [
+        { id: 'dance-mon', title: 'Monday 5:00 PM', instructor: 'Sara', level:'Beginner', duration:'1 hour' },
+        { id: 'dance-wed', title: 'Wednesday 6:00 PM', instructor: 'Albert', level:'Intermediate', duration:'1.5 hours' },
+        { id: 'dance-fri', title: 'Friday 7:00 PM', instructor: 'Zara', level:'Advanced', duration:'2 hours' },
+        { id: 'dance-sun', title: 'Sunday 4:00 PM', instructor: 'Bob', level:'Mixed', duration:'1.5 hours' }
+      ],
+      guitar: [
+        { id: 'guit-mon', title: 'Monday • 10:00 AM', instructor: 'Ali', level:'Beginner', duration:'1 hour' },
+        { id: 'guit-wed', title: 'Wednesday • 2:00 PM', instructor: 'Sara', level:'Mixed', duration:'1.5 hours' },
+        { id: 'guit-fri', title: 'Friday • 5:30 PM', instructor: 'Omar', level:'Intermediate', duration:'1.5 hours' },
+        { id: 'guit-sat', title: 'Saturday • 11:00 AM', instructor: 'Zara', level:'All levels', duration:'2 hours' }
+      ],
+      painting: [
+        { id: 'paint-mon', title: 'Monday 5:00 PM', instructor: 'Ayesha', level:'Beginner', duration:'1 hour' },
+        { id: 'paint-wed', title: 'Wednesday 6:00 PM', instructor: 'Omar', level:'Intermediate', duration:'1.5 hours' },
+        { id: 'paint-fri', title: 'Friday 7:00 PM', instructor: 'Zara', level:'Advanced', duration:'2 hours' },
+        { id: 'paint-sun', title: 'Sunday 4:00 PM', instructor: 'Ali', level:'Mixed (All Levels)', duration:'1.5 hours' }
+      ]
+    };
+
+    // Populate available slots when class changes
+    const classSelect = document.getElementById('classSelect');
+    const slotsContainer = document.getElementById('slotsContainer');
+
+    function renderSlotsForClass(classKey) {
+      slotsContainer.innerHTML = ''; // clear
+      if (!classKey || !schedules[classKey]) {
+        const hint = document.createElement('p');
+        hint.className = 'slots-hint';
+        hint.textContent = 'Choose a class above to see available slots (matching that class schedule).';
+        slotsContainer.appendChild(hint);
+        return;
+      }
+
+      const arr = schedules[classKey];
+      const group = document.createElement('div');
+      group.className = 'slots-grid';
+
+      arr.forEach(slot => {
+        const card = document.createElement('label');
+        card.className = 'slot-card';
+
+        const radio = document.createElement('input');
+        radio.type = 'radio';
+        radio.name = 'slot';
+        radio.value = slot.id;
+        radio.required = true;
+
+        const info = document.createElement('div');
+        info.className = 'slot-info';
+        info.innerHTML = `<strong>${slot.title}</strong>
+                          <div class="slot-meta">${slot.instructor} • ${slot.level} • ${slot.duration}</div>`;
+
+        card.appendChild(radio);
+        card.appendChild(info);
+        group.appendChild(card);
+      });
+
+      slotsContainer.appendChild(group);
+    }
+
+    // initial hint
+    renderSlotsForClass('');
+
+    classSelect.addEventListener('change', (e) => {
+      renderSlotsForClass(e.target.value);
     });
 
-    overlay.addEventListener('click', () => {
-      document.body.classList.remove('sidebar-open');
+    // Handle form submit: show toast and clear form
+    const bookingForm = document.getElementById('bookingForm');
+    const toast = document.getElementById('toast');
+    const clearBtn = document.getElementById('clearBtn');
+
+    function showToast(message, timeout = 3500) {
+      toast.textContent = '';
+      toast.classList.remove('show');
+      setTimeout(() => {
+        toast.textContent = message;
+        toast.classList.add('show');
+      }, 50);
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, timeout + 50);
+    }
+
+    bookingForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      // validate slot selected
+      const chosenSlot = bookingForm.querySelector('input[name="slot"]:checked');
+      if (!chosenSlot) {
+        showToast('Please select a slot for the chosen class.');
+        return;
+      }
+
+      // collect data (demo only)
+      const payload = {
+        name: bookingForm.name.value.trim(),
+        email: bookingForm.email.value.trim(),
+        phone: bookingForm.phone.value.trim(),
+        class: bookingForm.class.value,
+        slot: chosenSlot.value,
+        notes: bookingForm.notes.value.trim()
+      };
+
+      // demo success
+      
+      showToast('🎉 Booking submitted! We will contact you soon.');
+
+      // clear form after success (reset)
+      bookingForm.reset();
+      renderSlotsForClass(''); // reset slots area
     });
 
-    closeSidebarBtn.addEventListener('click', () => {
-      document.body.classList.remove('sidebar-open');
+    // clear button
+    clearBtn.addEventListener('click', () => {
+      bookingForm.reset();
+      renderSlotsForClass('');
     });
   </script>
-
 </body>
 </html>
